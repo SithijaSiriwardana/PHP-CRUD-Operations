@@ -9,13 +9,17 @@
 		$name = $_POST['name'];
 		$address = $_POST['address'];
 		$telephone = $_POST['telephone'];
+		$quantity = $_POST['quantity'];
 		
 		$CreateSql = "INSERT INTO orders(item, name, address,phone_no,quantity) VALUES('$type','$name', '$address', '$telephone', '$quantity')";
 		 if($connection->query($CreateSql) == TRUE){
 		    echo "<script type='text/javascript'>alert('Order created successfully!');
 		    window.location='';
 		    </script>";
-		  }
+		  }else{
+		   $error =  "Error: " .$CreateSql . "<br>".$connection->error;
+		   echo $error;
+		 }
 		}
 ?>
 
@@ -73,7 +77,8 @@
 			    <label for="input" >Telephone No.</label>
 			     	<input type="text" name="telephone"  class="form-control" id="input" placeholder="Telephone No." required/>
 
-
+			     <label for="input">Quantity</label>
+					<input type="text" name="quantity" id="input" placeholder="Quantity" required/>
  
 				<input type="submit" value="submit" />
 		</form>
