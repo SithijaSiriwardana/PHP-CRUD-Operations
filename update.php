@@ -1,3 +1,35 @@
+<?php
+include "config.php";
+$id = $_GET['id'];
+
+$result = mysqli_query($connection, "SELECT * FROM orders WHERE id=$id");
+while($res = mysqli_fetch_array($result))
+{
+	$type = $res['item'];
+	$name = $res['name'];
+	$address = $res['address'];
+	$telephone = $res['phone_no'];
+	$quantity = $res['quantity'];
+}
+
+ if(isset($_POST) & !empty($_POST)){
+    $type = $_POST['type'];
+    $name = $_POST['name'];
+    $address = $_POST['address'];
+    $telephone = $_POST['telephone'];
+    $quantity = $_POST['quantity'];
+ 
+    $UpdateSql = "UPDATE orders SET item='$type', name='$name', address='$address', phone_no='$telephone', quantity='$quantity' WHERE id=$id";
+    $res = mysqli_query($connection, $UpdateSql);
+    if($res){
+        header('location: customer_view.php');
+    }else{
+         echo "Error updating record: " . mysqli_error($connection);
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
