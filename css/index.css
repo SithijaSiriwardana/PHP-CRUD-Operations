@@ -30,6 +30,12 @@ td {
     text-align: center;
 }
 
+link{
+	-webkit-appearance: button;
+	text-decoration: none;
+    color: initial;
+
+}
       
 tr:nth-child(even) td { background: #F1F1F1; }   
        

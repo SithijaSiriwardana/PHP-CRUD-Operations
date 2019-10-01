@@ -31,7 +31,7 @@
   <link href="css/index.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-	<h3><a href="customer_view.php">View Orders</a></h3>
+	<h3><a href="customer_view.php" class='link'>View Orders</a></h3>
 
 	<div class="container">
 	
